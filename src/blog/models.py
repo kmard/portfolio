@@ -6,3 +6,10 @@ class blog_model(models.Model):
     date = models.DateField()
     description = models.TextField()
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Blog'
+        verbose_name_plural = 'Blogs'
+
