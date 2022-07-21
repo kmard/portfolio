@@ -6,9 +6,10 @@
 </head>
 <body>
    <h1>My Blog</h1>
+   <h2><a href="{% url 'home'%}">Portfolio</a></h2>
      {% for blog in blogs %}
         <div>
-           <h2 style="color: #409b9b;">{{blog.title}}</h2>
+           <a href="{% url 'blog:detail' blog.id %}"><h2 style="color: #409b9b;">{{blog.title}}</h2></a>
            <h3>{{blog.date}}</h3>
             <p>
                {{blog.description}}

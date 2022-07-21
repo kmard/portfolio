@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Portfolio</title>
 </head>
 <body>
     {% load static %}
     <h1>My portfolio</h1>
-    <a href="{% static 'portfolio/eats.pdf' %}">Resume</a>
+
     <img src="{% static 'portfolio/Hydrangeas.jpg'%}" title="photo" style="width: 300px; height: 300px;">
+    <a href="{% static 'portfolio/eats.pdf' %}">Resume</a>
+    <h2><a href="{% url 'blog:all_blogs'%}">Blogs</a></h2>
     {% for project in projects %}
        <h2>{{project.title}}</h2>
           {{project.description}}
+       {% if project.image %}
        <img src="{{project.image.url}}" height=40 width=40>
+       {% endif %}
     {% if project.url %}
        <br><a href="{{project.url}}">link</a>
     {% endif %}
