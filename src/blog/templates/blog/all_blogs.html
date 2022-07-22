@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-   <h1>My Blog</h1>
-   <h2>Were written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h2>
-   <h2><a href="{% url 'home'%}">Portfolio</a></h2>
-     {% for blog in blogs %}
-        <div>
-           <a href="{% url 'blog:detail' blog.id %}"><h2 style="color: #409b9b;">{{blog.title}}</h2></a>
-           <h3>{{blog.date| date:'M d Y'}}</h3>
-            <p>
-               {{blog.description|safe|truncatechars:50}}
-            </p>
-        </div>
-     {% endfor %}
-</body>
-</html>
+
+{% extends 'portfolio\base.html' %}
+
+{% block content %}
+
+    <h1>My Blog</h1>
+    <h2>Were written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h2>
+    <h2><a href="{% url 'home'%}">Portfolio</a></h2>
+    {% for blog in blogs %}
+    <div>
+        <a href="{% url 'blog:detail' blog.id %}"><h2 style="color: #409b9b;">{{blog.title}}</h2></a>
+        <h3>{{blog.date| date:'M d Y'}}</h3>
+        <p>
+            {{blog.description|safe|truncatechars:50}}
+        </p>
+    </div>
+    {% endfor %}
+
+{% endblock %}
