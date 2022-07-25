@@ -5,9 +5,9 @@
       {% load static %}
       <h1>My portfolio</h1>
 
-      <img src="{% static 'portfolio/Hydrangeas.jpg'%}" title="photo" style="width: 300px; height: 300px;">
+      <img src="{% static 'portfolio/man_960_720.jpg'%}" title="photo" style="width: 400px; height: 400px;">
       <br>
-      <a href="{% static 'portfolio/eats.pdf' %}">Resume</a>
+      <a href="{% static 'portfolio/rez.pdf' %}">Resume</a>
       <h2><a href="{% url 'blog:all_blogs'%}">Blogs</a></h2>
       {% for project in projects %}
       <h2>{{project.title}}</h2>
