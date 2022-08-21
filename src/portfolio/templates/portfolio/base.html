@@ -29,9 +29,11 @@
                       <a class="nav-link" href="https://twitter.com" target="_blank">Twitter</a>
                   </li>
                   <li>
-
-                      <a role="button" href="{% url 'blog:all_blogs' %}" class="btn btn-primary">Blog</a>
-
+                      {% if showBlog %}
+                         <a role="button" href="{% url 'blog:all_blogs' %}" class="btn btn-primary">Blogs</a>
+                      {% else %}
+                         <a role="button" href="{% url 'home' %}" class="btn btn-primary">Portfolio</a>
+                      {% endif %}
                   </li>
               </ul>
           </div>
