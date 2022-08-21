@@ -3,22 +3,47 @@
 
 {% block content %}
       {% load static %}
-      <h1>My portfolio</h1>
-
-      <img src="{% static 'portfolio/man_960_720.jpg'%}" title="photo" style="width: 400px; height: 400px;">
-      <br>
-      <a href="{% static 'portfolio/rez.pdf' %}">Resume</a>
-      <h2><a href="{% url 'blog:all_blogs'%}">Blogs</a></h2>
-      {% for project in projects %}
-      <h2>{{project.title}}</h2>
-      {{project.description}}
-      {% if project.image %}
-      <img src="{{project.image.url}}" height=40 width=40>
-      {% endif %}
-      {% if project.url %}
-      <br><a href="{{project.url}}">link</a>
-      {% endif %}
-
-      {% endfor %}
+            <style>
+               .title{
+                 color:#0dd3c19e;
+               }
+               .img,.title,.intresting_news{
+                  text-align:center;
+               }
+               .intresting_news{
+               color:#f15003c2
+               }
+               div{
+                 margin: 0 10px;
+               }
+               .news-title{
+                 background-color:#1376072b
+               }
+               .link-news:hover{
+                  color:red;
+               }
+            </style>
+                  <div class="headfolio">
+                         <h1 class="title">My portfolio</h1>
+                         <a href="{% static 'portfolio/rez.pdf' %}" target="_blank" >link to resume</a>
+                  </div>
+                  <div class="img">
+                         <img src="{% static 'portfolio/man_960_720.jpg'%}" title="photo" style="width: 50%; height: 50%;">
+                  </div>
+                  <div>
+                    <h3 class="intresting_news"> Intresting news</h3>
+                  </div>
+                        {% for project in projects %}
+                    <div class="news">
+                         <h2 class="news-title">{{project.title}}</h2>
+                              {{project.description}}
+                              {% if project.image %}
+                              <img src="{{project.image.url}}" height=40 width=40>
+                              {% endif %}
+                              {% if project.url %}
+                              <br><a href="{{project.url}}" class="link-news" target="_blank">link</a>
+                        {% endif %}
+                    </div>
+                       {% endfor %}
 {% endblock %}
 

@@ -2,18 +2,32 @@
 {% extends 'portfolio/base.html' %}
 
 {% block content %}
+     <style>
+         .were_writen{
+           font-size: solid 15px
+           font-family: Arial, Helvetica, sans-serif;
+         }
+         .header{
+             color:#0b8b7f9e;
+         }
+         .news-title{
+             background-color:#1376072b
+         }
+     </style>
+     <div class="header">
+        <h1 class="title">My Blog</h1>
+        <div class="were_writen">Were written {{ blogs.count }} blog{{ blogs.count|pluralize}}</div>
+    </div>
 
-    <h1>My Blog</h1>
-    <h2>Were written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h2>
-    <h2><a href="{% url 'home'%}">Portfolio</a></h2>
+    <h2><a href="{% url 'home'%}" class="link-danger">Back to portfolio</a></h2>
     {% for blog in blogs %}
-    <div>
+    <div class="news-title">
         <a href="{% url 'blog:detail' blog.id %}"><h2 style="color: #409b9b;">{{blog.title}}</h2></a>
         <h3>{{blog.date| date:'M d Y'}}</h3>
         <p>
-            {{blog.description|safe|truncatechars:50}}
+            {{blog.description|safe|truncatechars:90}}
         </p>
     </div>
     {% endfor %}
 
-{% endblock %}
+{% endblock content %}
