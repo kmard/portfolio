@@ -15,28 +15,13 @@
   <body>
   <nav id="topNav" class="navbar navbar-expand-md bg-primary">
       <div class="container">
-          <a class="navbar-brand" href="{% url 'home' %}"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse text-center " id="navbarNav">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="https://twitter.com" target="_blank">Twitter</a>
-                  </li>
-                  <li>
-                      {% if showBlog %}
-                         <a role="button" href="{% url 'blog:all_blogs' %}" class="btn btn-primary">Blogs</a>
-                      {% else %}
-                         <a role="button" href="{% url 'home' %}" class="btn btn-primary">Portfolio</a>
-                      {% endif %}
-                  </li>
-              </ul>
-          </div>
+              {% if showBlog %}
+                 <a role="button" href="{% url 'blog:all_blogs' %}" class="btn btn-primary">Blogs</a>
+              {% else %}
+                 <a role="button" href="{% url 'home' %}" class="btn btn-primary">Portfolio</a>
+              {% endif %}
+              <a role="button" href="https://www.linkedin.com" class="btn btn-primary" target="_blank">LinkedIn</a>
+              <a role="button" href="https://twitter.com" class="btn btn-primary" target="_blank">Twitter</a>
       </div>
   </nav>
   <div class="container">
