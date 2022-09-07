@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class blog_model(models.Model):
     title = models.CharField(max_length=100)
@@ -12,4 +13,3 @@ class blog_model(models.Model):
     class Meta:
         verbose_name = 'Blog'
         verbose_name_plural = 'Blogs'
-
