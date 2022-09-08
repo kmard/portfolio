@@ -12,7 +12,7 @@ source venv/bin/activate
 4.Move to folder with file requirements.txt: 
 cd src
 
-5.Install all components for progect:
+5.Install all components for project:
 pip install -r requirements.txt
 
 
